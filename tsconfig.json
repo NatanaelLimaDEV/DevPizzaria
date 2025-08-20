@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "target": "es2016",                // Versão do JS que será gerada
+    "module": "commonjs",              // CommonJS para Node
+    "rootDir": "./src",                // Diretório de origem
+    "outDir": "./dist",                // Diretório de saída compilado
+    "strict": true,                    // Ativa todas verificações rígidas
+    "esModuleInterop": true,           // Permite importar módulos CommonJS
+    "forceConsistentCasingInFileNames": true,
+    "skipLibCheck": true,
+    "sourceMap": true
+  },
+  "include": ["src/**/*.ts"],
+  "exclude": ["node_modules"]
+}
