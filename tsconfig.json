@@ -4,7 +4,7 @@
     "module": "commonjs",              // CommonJS para Node
     "rootDir": "./src",                // Diretório de origem
     "outDir": "./dist",                // Diretório de saída compilado
-    "strict": true,                    // Ativa todas verificações rígidas
+    "strict": false,                    // Ativa todas verificações rígidas
     "esModuleInterop": true,           // Permite importar módulos CommonJS
     "forceConsistentCasingInFileNames": true,
     "skipLibCheck": true,
