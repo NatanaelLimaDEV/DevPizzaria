@@ -19,10 +19,13 @@ import { SendOrderController } from "./controllers/order/SendOrderController";
 import { ListOrdersController } from "./controllers/order/ListOrdersController";
 import { DetailOrderController } from "./controllers/order/DetailOrderController";
 import { FinishOrderController } from "./controllers/order/FinishOrderController";
+import { UpdateItemController } from "./controllers/order/UpdateItemController";
+import { DeleteProductController } from "./controllers/product/DeleteProductController";
+import { DeleteCategoryController } from "./controllers/category/DeleteCategoryController";
 
 const router = Router();
 
-const upload = multer(uploadConfig.upload("./tmp"))
+const upload = multer(uploadConfig.upload())
 
 //-- Rotas user --
 router.post('/users', new CreateUserController().handle)
@@ -34,10 +37,14 @@ router.get('/me', isAuthenticated, new DetailUserController().handle)
 //-- Rotas category --
 router.post('/category', isAuthenticated, new CreateCategoryController().handle)
 
+router.delete('/category/delete', isAuthenticated, new DeleteCategoryController().handle)
+
 router.get('/category', isAuthenticated, new ListCategoryController().handle)
 
 //-- Rotas product --
 router.post('/product', isAuthenticated, upload.single('file'), new CreateProductController().handle)
+
+router.delete('/product/delete', isAuthenticated, new DeleteProductController().handle)
 
 router.get('/category/product', isAuthenticated, new ListByCategoryController().handle)
 
@@ -57,5 +64,7 @@ router.get('/orders', isAuthenticated, new ListOrdersController().handle)
 router.get('/order/detail', isAuthenticated, new DetailOrderController().handle)
 
 router.put('/order/finish', isAuthenticated, new FinishOrderController().handle)
+
+router.put('/order/update', isAuthenticated, new UpdateItemController().handle)
 
 export { router }
